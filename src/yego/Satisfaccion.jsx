@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react'
-import LOGO from './YEGO RECARGA/LOGO.png'
-import Cerrar_Secion from "./YEGO RECARGA/CERRAR SESIÓN.png"
+import LOGO from '../YEGO RECARGA/LOGO_YegoSatisfaccion.png'
+import Cerrar_Secion from "../YEGO RECARGA/CERRAR SESIÓN.png"
 import $ from 'jquery';
 import { FaSearch } from "react-icons/fa";
 import { FaRegFileExcel } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
-import './App.css'
+import '../App.css'
 import axios from 'axios'
 import * as XLSX from 'xlsx';
 import { useNavigate } from 'react-router-dom';
-import Spiner from './snippet/Spiner';
+import Spiner from '../snippet/Spiner';
 
-function Inicio() {
-  const [datos, setDatos] = useState(0)
+function Satisfaccion() {
+  const [datos, setDatos] = useState([])
   const [filtroEstrellas, setFiltroEstrellas] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -30,9 +30,9 @@ function Inicio() {
 
     fetchData();
   }, []);
- 
+
   const datosFiltrados = datos.filter?.(dato => parseInt(dato.ratings) === filtroEstrellas);
-const navigate=useNavigate()
+  const navigate = useNavigate()
   const exportToExcel = () => {
     // Convierte los datos a un formato de hoja de cálculo
     const worksheet = XLSX.utils.json_to_sheet(datos);
@@ -72,7 +72,7 @@ const navigate=useNavigate()
     setFiltroEstrellas(num);
   };
   const datosFinales = datosFiltrados?.length > 0 ? datosFiltrados : datos;
-  const CerrarSecion=()=>{
+  const CerrarSecion = () => {
     localStorage.removeItem('token');
 
     // Redirecciona al login
@@ -80,10 +80,10 @@ const navigate=useNavigate()
   }
   return (
     <div className=' overflow-hidden'>
-          {loading && <Spiner />} 
+      {loading && <Spiner />}
       <header className='header-center flex justify-between items-center'>
         <img src={LOGO} alt="" className='w-[25rem] h-auto py-[2rem] px-[0] pl-10' />
-        <button className="profile-container" onClick={()=>CerrarSecion()}>
+        <button className="profile-container" onClick={() => CerrarSecion()}>
           <a id="logoutButton" className='flex items-center mr-10 text-white gap-2'>Cerrar Sesión  <img src={Cerrar_Secion} alt="" className='w-[30px]' /></a>
         </button>
       </header>
@@ -111,24 +111,24 @@ const navigate=useNavigate()
           ))}
         </div>
         <h3>Total de registros: <span>{datosFinales.length}</span></h3>
-        <div className='overflow-x-scroll rounded-t-lg'>
-          <table id="registrosTable" class="table-auto">
-            <thead className='bg-[#d42929] text-white'>
+        <div className='overflow-x-scroll rounded-t-lg no-scrollbar'>
+          <table id="registrosTable" className="table-auto min-w-[96vw]">
+            <thead className='bg-[#d42929] text-white '>
               <tr>
-                <th>id</th>
+                <th>ID</th>
                 <th>Cuenta</th>
                 <th>Motivo</th>
                 <th>Agente</th>
-                <th>Calificacion</th>
-                <th>Telefono</th>
-                <th>Recomendacion</th>
+                <th>Calificación</th>
+                <th>Teléfono</th>
+                <th>Recomendación</th>
                 <th>Comentario</th>
                 <th>Fecha y Hora</th>
               </tr>
             </thead>
             <tbody>
               {datosFinales?.map?.((dato, index) => (
-                <tr key={dato.id} className={`${index % 2 === 0 ? "bg-white" : "bg-[#F2F2F2]"} `}>
+                <tr key={dato.id} className={`${index % 2 === 0 ? "bg-white" : "bg-[#F2F2F2]"} cursor-pointer`}>
                   <td>{dato.id + 1}</td>
                   <td>{dato.nameAccount}</td>
                   <td className="line-clamp-2 w-80">{dato.reason}</td>
@@ -152,5 +152,5 @@ const navigate=useNavigate()
   )
 }
 
-export default Inicio
+export default Satisfaccion
 

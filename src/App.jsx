@@ -2,7 +2,7 @@
 import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Login from './Login';
-import Inicio from './Inicio';
+import Satisfaccion from './yego/Satisfaccion';
 import ProtectedRoutes from './ProtectedRoutes';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route element={<ProtectedRoutes />} >
-          <Route path="/Inicio" element={<Inicio />} />
+          <Route path="/Satisfaccion" element={<Satisfaccion />} />
         </Route>
       </Routes>
     </HashRouter>

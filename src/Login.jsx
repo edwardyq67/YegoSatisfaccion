@@ -34,7 +34,7 @@ function Login() {
                 localStorage.setItem('token', responseData.user);
                 
                 // Redireccionar al Dashboard
-                navigate('/Inicio');  // Usando react-router-dom
+                navigate('/Satisfaccion');  // Usando react-router-dom
             } else {
                 setErrorMessage('Credenciales incorrectas, intenta de nuevo.');
             }
