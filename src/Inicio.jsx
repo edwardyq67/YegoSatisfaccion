@@ -76,7 +76,7 @@ const navigate=useNavigate()
     localStorage.removeItem('token');
 
     // Redirecciona al login
-    navigate('/login');
+    navigate('/');
   }
   return (
     <div className=' overflow-hidden'>

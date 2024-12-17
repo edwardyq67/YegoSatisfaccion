@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { FaUserAlt } from "react-icons/fa";
@@ -13,8 +13,7 @@ function Login() {
 
     const {
         register,
-        handleSubmit,
-        formState: { errors }
+        handleSubmit
     } = useForm();
 
     const togglePassword = () => {
@@ -91,7 +90,7 @@ function Login() {
                 {/* Botón de envío */}
                 <button
                     type="submit"
-                    className="w-full bg-green-500 text-white font-bold py-2 rounded-md mt-4 hover:bg-green-600 transition-all"
+                    className="w-full bg-red-600 text-white font-bold py-2 rounded-md mt-4 hover:bg-red-700 transition-all"
                 >
                     Ingresar
                 </button>
