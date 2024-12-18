@@ -29,7 +29,7 @@ function Login() {
     
             if (response.status === 200) {
                 const responseData = response.data;
-                const validUsers = ['cortegam', 'el de melñissa', 'amontoyar','eyllanesq'];
+                const validUsers = ['cortegam', 'amontoyar','eyllanesq'];
     
                 // Verificar si el usuario coincide con alguno de los valores permitidos
                 if (validUsers.includes(responseData.user)) {
