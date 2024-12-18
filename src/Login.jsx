@@ -26,15 +26,21 @@ function Login() {
                 usuario: data.usuario,
                 contraseña: data.contraseña
             });
-
+    
             if (response.status === 200) {
                 const responseData = response.data;
-                
-                // Guardar el token en localStorage
-                localStorage.setItem('token', responseData.user);
-                
-                // Redireccionar al Dashboard
-                navigate('/Satisfaccion');  // Usando react-router-dom
+                const validUsers = ['cortegam', 'el de melñissa', 'amontoyar','eyllanesq'];
+    
+                // Verificar si el usuario coincide con alguno de los valores permitidos
+                if (validUsers.includes(responseData.user)) {
+                    // Guardar el token en localStorage
+                    localStorage.setItem('token', responseData.user);
+    
+                    // Redireccionar al Dashboard
+                    navigate('/Satisfaccion');  // Usando react-router-dom
+                } else {
+                    setErrorMessage('Usuario no autorizado.');
+                }
             } else {
                 setErrorMessage('Credenciales incorrectas, intenta de nuevo.');
             }

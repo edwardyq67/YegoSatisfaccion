@@ -81,7 +81,7 @@ function Satisfaccion() {
   return (
     <div className=' overflow-hidden'>
       {loading && <Spiner />}
-      <header className='header-center flex justify-between items-center'>
+      <header className='mb-5 header-center flex justify-between items-center'>
         <img src={LOGO} alt="" className='w-[25rem] h-auto py-[2rem] px-[0] pl-10' />
         <button className="profile-container" onClick={() => CerrarSecion()}>
           <a id="logoutButton" className='flex items-center mr-10 text-white gap-2'>Cerrar Sesión  <img src={Cerrar_Secion} alt="" className='w-[30px]' /></a>

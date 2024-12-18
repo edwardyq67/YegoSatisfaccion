@@ -32,7 +32,7 @@ tbody tr td{
   overflow: hidden;
   text-overflow: ellipsis;
   line-height:1.5rem; /* Define la altura de línea */
-  max-height: 4.5rem; /* 3 líneas * 1.5rem cada una */
+  max-height: 6rem; /* 3 líneas * 1.5rem cada una */
   box-sizing: border-box;
 }
 
